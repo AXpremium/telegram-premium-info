@@ -1,258 +1,557 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>AAXXX 发卡网｜Telegram Premium 会员｜数字商品咨询</title>
-  <meta name="description" content="AAXXX 发卡网，提供 Telegram Premium 会员、Telegram 星星、礼物、续费等数字商品咨询。Telegram 联系：@aaxxx。">
-  <meta name="keywords" content="AAXXX发卡网, Telegram Premium, Telegram会员, Telegram星星, Telegram礼物, 数字商品, 会员咨询">
+  <title>Telegram Premium 会员｜Telegram Stars 星星</title>
+  <meta name="description" content="AAXXX 发卡网，Telegram Premium 会员、Telegram Stars 星星、Telegram 礼物、续费咨询。Telegram 联系：@aaxxx。">
+  <meta name="keywords" content="AAXXX发卡网, Telegram Premium, Telegram会员, Telegram Stars, Telegram星星, Telegram礼物, Telegram会员开通">
 
   <style>
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, "Microsoft YaHei", sans-serif;
-      background: #0f172a;
-      color: #fff;
-      line-height: 1.7;
+      background: linear-gradient(180deg, #fff7fb 0%, #ffffff 45%, #f8fbff 100%);
+      color: #333;
+      line-height: 1.8;
     }
 
-    .container {
-      max-width: 1100px;
+    .wrap {
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 30px 16px;
+      padding: 26px 16px 50px;
     }
 
-    .hero {
-      background: linear-gradient(135deg, #1d4ed8, #38bdf8);
-      border-radius: 26px;
-      padding: 36px 26px;
-      text-align: center;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    .top {
+      background: #fff;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 10px 35px rgba(255, 92, 179, 0.12);
+      margin-bottom: 22px;
+      border: 1px solid #ffe1f1;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: #ff5cb3;
+      border: 1px solid #ffd2eb;
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-weight: bold;
+      box-shadow: 0 5px 18px rgba(255, 92, 179, 0.18);
     }
 
     h1 {
-      font-size: 38px;
-      margin-bottom: 12px;
+      font-size: 32px;
+      margin: 18px 0 6px;
+      color: #222;
     }
 
     .sub {
-      font-size: 18px;
-      color: #e0f2fe;
+      color: #666;
+      margin-bottom: 18px;
     }
 
-    .contact {
-      margin-top: 22px;
+    .goods-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .goods-tag {
+      border: 1px solid #ffbde0;
       background: #fff;
-      color: #0f172a;
-      display: inline-block;
-      padding: 14px 24px;
+      color: #666;
+      padding: 8px 12px;
       border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(255, 92, 179, 0.14);
+      transition: 0.2s;
+      font-size: 15px;
+    }
+
+    .goods-tag.active,
+    .goods-tag:hover {
+      background: #fff1f8;
+      color: #ff4aa5;
+      border-color: #ff7fc2;
+    }
+
+    .main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      background: #fff;
+      border-radius: 24px;
+      padding: 24px;
+      border: 1px solid #f1f1f1;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+    }
+
+    .box {
+      padding: 8px 4px;
+    }
+
+    .title {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 0 0 14px;
+      color: #333;
+    }
+
+    .section {
+      border-bottom: 1px solid #eee;
+      padding: 16px 0;
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section h2 {
+      font-size: 24px;
+      margin: 0 0 10px;
+      color: #222;
+    }
+
+    ul {
+      padding-left: 24px;
+      margin: 8px 0 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .product-title {
+      font-size: 24px;
+      color: #555;
+      margin: 0 0 6px;
+      font-weight: bold;
+    }
+
+    .share {
+      color: #1683d8;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .label {
+      color: #777;
+      text-align: right;
+      font-size: 15px;
+    }
+
+    input {
+      width: 100%;
+      height: 38px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 0 12px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    input:focus {
+      border-color: #ff86c8;
+      box-shadow: 0 0 0 3px rgba(255, 134, 200, 0.14);
+    }
+
+    .price {
+      color: #19c37d;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ff5cb3;
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .option {
+      padding: 6px 14px;
+      border: 1px solid #ffbde0;
+      background: #fff;
+      color: #555;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .option.active,
+    .option:hover {
+      background: #fff1f8;
+      color: #ff4aa5;
+      border-color: #ff7fc2;
+    }
+
+    .captcha-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .captcha {
+      min-width: 62px;
+      text-align: center;
+      border: 1px solid #ffbde0;
+      color: #ff4aa5;
+      background: #fff7fb;
+      border-radius: 6px;
+      height: 34px;
+      line-height: 34px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .total {
+      color: #ff4aa5;
       font-size: 22px;
       font-weight: bold;
     }
 
     .btn {
-      display: inline-block;
-      background: #22c55e;
-      color: #fff;
-      padding: 12px 22px;
-      border-radius: 999px;
-      text-decoration: none;
+      width: 100%;
+      height: 48px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #ff5cb3, #ff8fd0);
+      color: white;
+      font-size: 18px;
       font-weight: bold;
-      margin-top: 12px;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(255, 92, 179, 0.28);
     }
 
-    .section {
-      margin-top: 28px;
-    }
-
-    .section h2 {
-      font-size: 26px;
-      margin-bottom: 16px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 20px;
-      padding: 22px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.22);
-    }
-
-    .card h3 {
-      font-size: 22px;
-      margin-top: 0;
-      color: #bae6fd;
-    }
-
-    .price {
-      font-size: 24px;
-      font-weight: bold;
-      color: #fef08a;
-      margin: 10px 0;
-    }
-
-    .tag {
-      display: inline-block;
-      background: rgba(255,255,255,0.14);
-      padding: 5px 10px;
-      border-radius: 999px;
-      margin: 4px;
-      font-size: 14px;
-    }
-
-    .steps {
-      background: rgba(255,255,255,0.08);
-      border-radius: 20px;
-      padding: 24px;
-    }
-
-    .steps li {
-      margin-bottom: 10px;
+    .btn:hover {
+      opacity: 0.92;
     }
 
     .notice {
-      background: rgba(250, 204, 21, 0.12);
-      border: 1px solid rgba(250, 204, 21, 0.35);
-      border-radius: 18px;
-      padding: 18px;
-      color: #fef9c3;
-      margin-top: 24px;
+      margin-top: 20px;
+      background: #fff7e6;
+      border: 1px solid #ffe3a3;
+      color: #8a5a00;
+      padding: 14px 16px;
+      border-radius: 14px;
+      font-size: 14px;
+    }
+
+    .side-contact {
+      position: fixed;
+      right: 14px;
+      top: 42%;
+      background: #ff86c8;
+      color: #fff;
+      writing-mode: vertical-rl;
+      padding: 12px 8px;
+      border-radius: 10px;
+      font-weight: bold;
+      box-shadow: 0 8px 24px rgba(255, 92, 179, 0.35);
+      text-decoration: none;
     }
 
     .footer {
       text-align: center;
-      color: #cbd5e1;
+      color: #888;
       font-size: 14px;
-      margin-top: 35px;
+      margin-top: 24px;
     }
 
-    strong {
-      color: #fef08a;
+    @media (max-width: 850px) {
+      .main {
+        grid-template-columns: 1fr;
+      }
+
+      .row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .label {
+        text-align: left;
+      }
+
+      .side-contact {
+        display: none;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
+  <a class="side-contact" href="https://t.me/aaxxx" target="_blank">联系客服</a>
 
-    <div class="hero">
-      <h1>AAXXX 发卡网</h1>
-      <p class="sub">
-        Telegram Premium 会员｜Telegram 星星｜Telegram 礼物｜数字商品咨询
-      </p>
+  <div class="wrap">
+    <div class="top">
+      <div class="logo">✈️ AAXXX 发卡网</div>
 
-      <div class="contact">
-        Telegram 联系：@aaxxx
-      </div>
+      <h1>Telegram 数字商品下单页</h1>
+      <p class="sub">Telegram Premium 会员｜Telegram Stars 星星｜Telegram 礼物｜续费咨询</p>
 
-      <br>
-
-      <a class="btn" href="https://t.me/aaxxx" target="_blank">
-        点击联系下单
-      </a>
-    </div>
-
-    <div class="section">
-      <h2>商品分类</h2>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Telegram Premium 会员</h3>
-          <p>支持 Telegram Premium 高级会员相关咨询。</p>
-          <div class="price">联系客服报价</div>
-          <span class="tag">会员</span>
-          <span class="tag">Premium</span>
-          <span class="tag">续费</span>
-          <br>
-          <a class="btn" href="https://t.me/aaxxx" target="_blank">立即咨询</a>
-        </div>
-
-        <div class="card">
-          <h3>Telegram 星星</h3>
-          <p>Telegram Stars 星星相关说明与咨询。</p>
-          <div class="price">联系客服报价</div>
-          <span class="tag">Stars</span>
-          <span class="tag">星星</span>
-          <span class="tag">数字商品</span>
-          <br>
-          <a class="btn" href="https://t.me/aaxxx" target="_blank">立即咨询</a>
-        </div>
-
-        <div class="card">
-          <h3>Telegram 礼物</h3>
-          <p>Telegram 礼物、赠送、展示相关咨询。</p>
-          <div class="price">联系客服报价</div>
-          <span class="tag">礼物</span>
-          <span class="tag">Gift</span>
-          <span class="tag">咨询</span>
-          <br>
-          <a class="btn" href="https://t.me/aaxxx" target="_blank">立即咨询</a>
-        </div>
-
-        <div class="card">
-          <h3>会员续费咨询</h3>
-          <p>Telegram Premium 到期续费、账号状态说明。</p>
-          <div class="price">联系客服报价</div>
-          <span class="tag">续费</span>
-          <span class="tag">长期</span>
-          <span class="tag">客服</span>
-          <br>
-          <a class="btn" href="https://t.me/aaxxx" target="_blank">立即咨询</a>
-        </div>
+      <div class="goods-tags">
+        <button class="goods-tag active" onclick="selectProduct(0)">⭐ Telegram Premium 会员</button>
+        <button class="goods-tag" onclick="selectProduct(1)">🌟 Telegram Stars 星星</button>
+        <button class="goods-tag" onclick="selectProduct(2)">🎁 Telegram 礼物咨询</button>
+        <button class="goods-tag" onclick="selectProduct(3)">🔄 会员续费咨询</button>
       </div>
     </div>
 
-    <div class="section">
-      <h2>下单流程</h2>
+    <div class="main">
+      <div class="box">
+        <div class="title">商品信息</div>
 
-      <div class="steps">
-        <ol>
-          <li>选择需要咨询的商品类型。</li>
-          <li>点击按钮联系 Telegram：<strong>@aaxxx</strong>。</li>
-          <li>确认账号信息、商品类型和处理方式。</li>
-          <li>按实际情况完成处理。</li>
-          <li>如有问题，继续通过 Telegram 联系客服。</li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>常见问题</h2>
-
-      <div class="grid">
-        <div class="card">
-          <h3>多久生效？</h3>
-          <p>具体时间需要看账号状态、地区、商品类型和订单情况，以实际显示为准。</p>
+        <div class="section">
+          <h2>📌 下单须知：</h2>
+          <ul>
+            <li>请填写正确的 Telegram 用户名，格式例如：<b>@yourusername</b></li>
+            <li>不是手机号，不需要在网页填写密码。</li>
+            <li>下单前请确认商品类型、套餐和账号信息。</li>
+            <li>如填写错误导致处理失败，需自行承担对应后果。</li>
+          </ul>
         </div>
 
-        <div class="card">
-          <h3>怎么联系？</h3>
-          <p>Telegram 用户名：<strong>@aaxxx</strong>，也可以点击页面按钮直接打开。</p>
+        <div class="section">
+          <h2>📦 发货时间说明：</h2>
+          <ul>
+            <li>本页面为展示下单页，提交后会跳转 Telegram 联系客服。</li>
+            <li>具体处理时间以客服在线时间和订单情况为准。</li>
+          </ul>
         </div>
 
-        <div class="card">
-          <h3>支持哪些内容？</h3>
-          <p>主要提供 Telegram Premium、星星、礼物、续费等正规数字商品咨询。</p>
+        <div class="section">
+          <h2>⚠️ 注意事项：</h2>
+          <ul>
+            <li>本页面不代表 Telegram 官方。</li>
+            <li>商品权益、价格、到账时间以实际情况为准。</li>
+            <li>如有疑问，请先联系 Telegram：<b>@aaxxx</b></li>
+          </ul>
         </div>
       </div>
-    </div>
 
-    <div class="notice">
-      注意：本页面为数字商品咨询展示页，不代表 Telegram 官方。具体权益、价格和功能以实际平台显示为准。
+      <div class="box">
+        <p class="product-title" id="productName">Telegram Premium 会员</p>
+        <div class="share">↪ 将宝贝分享给好友</div>
+
+        <div class="row">
+          <div class="label">商品单价：</div>
+          <div class="price" id="unitPrice">¥128</div>
+        </div>
+
+        <div class="row">
+          <div class="label">发货方式：</div>
+          <div><span class="badge">联系客服</span></div>
+        </div>
+
+        <div class="row">
+          <div class="label">联系方式：</div>
+          <input id="contact" placeholder="请输入您的联系方式，方便订单查询">
+        </div>
+
+        <div class="row">
+          <div class="label">选择种类：</div>
+          <div class="options" id="planOptions"></div>
+        </div>
+
+        <div class="row">
+          <div class="label">购买数量：</div>
+          <input id="qty" type="number" value="1" min="1" oninput="updateTotal()">
+        </div>
+
+        <div class="row">
+          <div class="label">充值账号：</div>
+          <input id="tgUsername" placeholder="在此输入 @ 开头的 Telegram 用户名">
+        </div>
+
+        <div class="row">
+          <div class="label">人机验证：</div>
+          <div class="captcha-wrap">
+            <input id="captchaInput" placeholder="输入验证码">
+            <div class="captcha" id="captcha" onclick="makeCaptcha()">0000</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="label">订单金额：</div>
+          <div class="total" id="totalPrice">¥128</div>
+        </div>
+
+        <button class="btn" onclick="submitOrder()">提交订单并联系 @aaxxx</button>
+
+        <div class="notice">
+          提交后会自动复制订单信息，并打开 Telegram 联系客服 @aaxxx。
+        </div>
+      </div>
     </div>
 
     <div class="footer">
-      AAXXX 发卡网｜Telegram 联系：@aaxxx
+      AAXXX 发卡网｜Telegram 联系：@aaxxx｜本页面为数字商品咨询展示页
     </div>
-
   </div>
+
+  <script>
+    const tgContact = "aaxxx";
+
+    const products = [
+      {
+        name: "Telegram Premium 会员",
+        plans: [
+          { name: "三个月", price: 128 },
+          { name: "六个月", price: 188 },
+          { name: "一年", price: 288 }
+        ]
+      },
+      {
+        name: "Telegram Stars 星星",
+        plans: [
+          { name: "100 星星", price: 15 },
+          { name: "500 星星", price: 88 },
+          { name: "1000 星星", price: 148 }
+        ]
+      },
+      {
+        name: "Telegram 礼物咨询",
+        plans: [
+          { name: "普通礼物", price: 88 },
+          { name: "热门礼物", price: 188 },
+          { name: "联系客服", price: 0 }
+        ]
+      },
+      {
+        name: "会员续费咨询",
+        plans: [
+          { name: "三个月续费", price: 128 },
+          { name: "六个月续费", price: 188 },
+          { name: "一年续费", price: 288 }
+        ]
+      }
+    ];
+
+    let currentProduct = 0;
+    let currentPlan = 0;
+    let captchaCode = "";
+
+    function selectProduct(index) {
+      currentProduct = index;
+      currentPlan = 0;
+
+      document.querySelectorAll(".goods-tag").forEach((btn, i) => {
+        btn.classList.toggle("active", i === index);
+      });
+
+      renderProduct();
+    }
+
+    function renderProduct() {
+      const product = products[currentProduct];
+      document.getElementById("productName").innerText = product.name;
+
+      const box = document.getElementById("planOptions");
+      box.innerHTML = "";
+
+      product.plans.forEach((plan, index) => {
+        const btn = document.createElement("button");
+        btn.className = "option" + (index === currentPlan ? " active" : "");
+        btn.innerText = plan.name;
+        btn.onclick = function() {
+          currentPlan = index;
+          renderProduct();
+        };
+        box.appendChild(btn);
+      });
+
+      updateTotal();
+    }
+
+    function updateTotal() {
+      const qty = Math.max(1, Number(document.getElementById("qty").value || 1));
+      const price = products[currentProduct].plans[currentPlan].price;
+      const total = price * qty;
+
+      document.getElementById("unitPrice").innerText = price === 0 ? "联系客服报价" : "¥" + price;
+      document.getElementById("totalPrice").innerText = price === 0 ? "联系客服报价" : "¥" + total;
+    }
+
+    function makeCaptcha() {
+      captchaCode = String(Math.floor(1000 + Math.random() * 9000));
+      document.getElementById("captcha").innerText = captchaCode;
+    }
+
+    function submitOrder() {
+      const product = products[currentProduct];
+      const plan = product.plans[currentPlan];
+      const qty = Math.max(1, Number(document.getElementById("qty").value || 1));
+      const contact = document.getElementById("contact").value.trim();
+      const username = document.getElementById("tgUsername").value.trim();
+      const inputCaptcha = document.getElementById("captchaInput").value.trim();
+
+      if (!username.startsWith("@")) {
+        alert("请填写 @ 开头的 Telegram 用户名");
+        return;
+      }
+
+      if (inputCaptcha !== captchaCode) {
+        alert("验证码错误，请重新输入");
+        makeCaptcha();
+        return;
+      }
+
+      const total = plan.price === 0 ? "联系客服报价" : "¥" + (plan.price * qty);
+
+      const orderText =
+`AAXXX 发卡网订单
+商品：${product.name}
+套餐：${plan.name}
+数量：${qty}
+充值账号：${username}
+联系方式：${contact || "未填写"}
+订单金额：${total}
+
+请客服确认订单。`;
+
+      navigator.clipboard.writeText(orderText).then(() => {
+        alert("订单信息已复制，即将打开 Telegram 联系 @aaxxx");
+        window.open("https://t.me/" + tgContact, "_blank");
+      }).catch(() => {
+        alert(orderText);
+        window.open("https://t.me/" + tgContact, "_blank");
+      });
+    }
+
+    renderProduct();
+    makeCaptcha();
+  </script>
 </body>
 </html>
